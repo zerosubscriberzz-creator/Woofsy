@@ -11,7 +11,11 @@ import { Heart, MessageCircle, Sparkles, Star } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { realTimeService, type AppStats } from "@/lib/real-time-service"
 
-export default function HomePage() {
+interface HomePageProps {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default function HomePage({ searchParams }: HomePageProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [stats, setStats] = useState({
     members: 0,
